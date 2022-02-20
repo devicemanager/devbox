@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-vm_name = "devmachine"
+vm_name = "devbox"
 vm_cpus = "4"
 vm_mem  = "12288"
 
@@ -117,12 +117,10 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    pip list || apt-get install -y apache2 tasksel python3-pip libgmp-dev && tasksel install xubuntu-desktop && apt-get install -y openjdk-17-jdk maven virtualbox cmake gnupg && snap install --classic code
+    pip list || apt-get install -y apache2 tasksel python3-pip libgmp-dev && tasksel install xubuntu-desktop && apt-get install -y openjdk-17-jdk maven virtualbox cmake net-tools qnetstatview gnupg && snap install --classic code 
     vagrant -v || curl -O https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb && apt-get install -y ./vagrant_2.2.9_x86_64.deb && rm ./vagrant_2.2.9_x86_64.deb
     az -v || curl -sL https://aka.ms/InstallAzureCLIDeb | bash
-    cat /usr/share/keyrings/docker-archive-keyring.gpg > /dev/null || curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    cat /etc/apt/sources.list.d/docker.list >/dev/null || echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    docker --version || apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
+    docker --version ||snap instal --classic docker 
     scons --version || pip install scons 
   SHELL
 end
