@@ -1,4 +1,4 @@
 # devbox
-Ubuntu based developer machine
+Create an Ubuntu based developer machine
 
 Prerequisites: vagrant, virtualbox
