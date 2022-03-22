@@ -78,6 +78,7 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--longmode", "on"] # enables long mode (64 bit mode in GUEST OS)
       vb.customize ["modifyvm", :id, "--hpet", "on"] # enables a High Precision Event Timer (HPET)
       vb.customize ["modifyvm", :id, "--hwvirtex", "on"] # turn on host hardware virtualization extensions (VT-x|AMD-V)
+      vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"] # Allow nested hw virt
       vb.customize ["modifyvm", :id, "--nestedpaging", "on"] # if --hwvirtex is on, this enables nested paging
       vb.customize ["modifyvm", :id, "--largepages", "on"] # if --hwvirtex & --nestedpaging are on
       vb.customize ["modifyvm", :id, "--vtxvpid", "on"] # if --hwvirtex on
