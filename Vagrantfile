@@ -126,6 +126,6 @@ Vagrant.configure("2") do |config|
     docker --version >/dev/null 2>&1|| apt-get install -y docker.io && sudo usermod -a -G docker vagrant
     docker-compose --version >/dev/null 2>&1|| apt-get install -y docker-compose
     scons --version >/dev/null 2>&1|| pip install scons
-    apt-get upgrade -y
+    apt-get upgrade -y && reboot
   SHELL
 end
