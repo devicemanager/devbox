@@ -124,7 +124,8 @@ Vagrant.configure("2") do |config|
     which code >/dev/null 2>&1 || snap install --classic code
     which vagrant >/dev/null 2>&1|| $(curl -sL https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb >  ./vagrant_2.2.9_x86_64.deb && apt-get install -y ./vagrant_2.2.9_x86_64.deb >/dev/null && rm ./vagrant_2.2.9_x86_64.deb)
     which az >/dev/null 2>&1|| curl -sL https://aka.ms/InstallAzureCLIDeb | bash
-    docker --version >/dev/null 2>&1||apt-get install docker.io && sudo usermod -a -G docker vagrant
+    docker --version >/dev/null 2>&1|| apt-get install -y docker.io && sudo usermod -a -G docker vagrant
+    docker-compose --version >/dev/null 2>&1|| apt-get install -y docker-compose
     scons --version >/dev/null 2>&1|| pip install scons
     apt-get upgrade -y
   SHELL
