@@ -120,7 +120,7 @@ Vagrant.configure("2") do |config|
     apt-get update >/dev/null
     # Do your requirements for tools below here. Here is just a couple of variants. It starts with a test and is followed by the installation of the tool. 
     # Tests usually output to stdout and/or stderr which is thrown away. Installation output is to stdout/stderr if failed.
-    which cmake >/dev/null 2>&1 || apt-get install -y apache2 python3-pip libgmp-dev xubuntu-desktop^ openjdk-17-jdk maven virtualbox cmake net-tools qnetstatview gnupg 
+    which cmake >/dev/null 2>&1 || apt-get install -y apache2 python3-pip libgmp-dev xubuntu-desktop^ openjdk-17-jdk maven virtualbox cmake net-tools qnetstatview gnupg net-tools wireshark nmap
     which vagrant >/dev/null 2>&1|| $(curl -sL https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb >  ./vagrant_2.2.9_x86_64.deb && apt-get install -y ./vagrant_2.2.9_x86_64.deb >/dev/null && rm ./vagrant_2.2.9_x86_64.deb)
     which az >/dev/null 2>&1|| curl -sL https://aka.ms/InstallAzureCLIDeb | bash
     docker --version >/dev/null 2>&1|| apt-get install -y docker.io && sudo usermod -a -G docker vagrant
