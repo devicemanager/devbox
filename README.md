@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/devicemanager/devbox/tree/main.svg?style=svg)](https://circleci.com/gh/devicemanager/devbox/tree/main)
+
 # devbox
 Create an Ubuntu based developer machine
 
